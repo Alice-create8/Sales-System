@@ -1,0 +1,6 @@
+C:\Users\Pamela\source\repos\SistmVentas\CapaEntidad\bin\Release\CapaEntidad.dll
+C:\Users\Pamela\source\repos\SistmVentas\CapaEntidad\bin\Release\CapaEntidad.pdb
+C:\Users\Pamela\source\repos\SistmVentas\CapaEntidad\obj\Release\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\Pamela\source\repos\SistmVentas\CapaEntidad\obj\Release\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Pamela\source\repos\SistmVentas\CapaEntidad\obj\Release\CapaEntidad.dll
+C:\Users\Pamela\source\repos\SistmVentas\CapaEntidad\obj\Release\CapaEntidad.pdb

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="SistemaVentasStep" Language="1033" Version="1.0.0.0" Manufacturer="TuCompañía" UpgradeCode="8881f4f8-febb-42f4-bf5b-19a25ecdf34e">
+		<Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SistemaVentasStep" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+		<!-- Property to check if SQL Server is installed -->
+		<Property Id="SQLSERVERINSTALLED">
+			<RegistrySearch Id="SQLServerSearch"
+                            Root="HKLM"
+                            Key="SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL"
+                            Type="raw" />
+		</Property>
+
+		<InstallExecuteSequence>
+			<Custom Action="InstallSQLServer" After="InstallFiles">NOT SQLSERVERINSTALLED</Custom>
+			<Custom Action="InstallVS" After="InstallFiles">NOT Installed</Custom>
+		</InstallExecuteSequence>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="SistemaVentasStep" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="MainExecutable" Guid="08334061-d968-4af1-8111-7d3b49728cad">
+				<File Id="MyExecutableFile" Source="path\to\your\file.exe" KeyPath="yes" />
+			</Component>
+			<Component Id="SQLServerInstaller" Guid="08334061-d968-4af1-8111-7d3b49728cad">
+				<File Id="SQLServerFile" Source="path\to\SQLServerInstaller.exe" KeyPath="yes" />
+			</Component>
+			<Component Id="VSInstaller" Guid="08334061-d968-4af1-8111-7d3b49728cad">
+				<File Id="VSFile" Source="path\to\VSInstaller.exe" KeyPath="yes" />
+			</Component>
+			<Component Id="AppConfig" Guid="08334061-d968-4af1-8111-7d3b49728cad">
+				<File Id="ConfigFile" Source="CapaPresentación\App.config" KeyPath="yes" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+
+	<Fragment>
+		<CustomAction Id="InstallSQLServer" FileKey="SQLServerFile" ExeCommand="/quiet" Return="check" />
+		<CustomAction Id="InstallVS" FileKey="VSFile" ExeCommand="/quiet" Return="check" />
+	</Fragment>
+</Wix>
