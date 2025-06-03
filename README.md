@@ -1,5 +1,14 @@
 # 🛒 Sistema de Ventas
 
+
+
+<p align="center">
+  <img src="media/demo2.gif" width="600" alt="Vista previa del sistema" />
+</p>
+
+
+
+
 Este es un sistema de ventas de escritorio desarrollado en **C# con .NET**, utilizando arquitectura en capas y bases de datos relacionales. Permite gestionar productos, stock, clientes, ventas y compras, ideal para negocios medianos con un alto volumen de productos.
 
 > 🔧 Este sistema es una base funcional que puede ampliarse o personalizarse según las necesidades del negocio. Ideal para quienes desean practicar, mejorar o adaptar un sistema real de gestión de ventas.
